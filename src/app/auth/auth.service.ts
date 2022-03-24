@@ -4,6 +4,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnDestroy } from '@angular/core';
 import { Plugins } from '@capacitor/core';
+import { Storage} from '@capacitor/Storage';
 import { BehaviorSubject, from } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
@@ -66,7 +67,7 @@ export class AuthService implements OnDestroy{
 
   constructor(private http: HttpClient) { }
   autoLogin() {
-    return from(Plugins.Storage.get({ key: 'authData' })).pipe(
+    return from(Storage.get({ key: 'authData' })).pipe(
       map((storedData) => {
         if (!storedData || !storedData.value) {
           return null;

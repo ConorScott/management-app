@@ -27,6 +27,7 @@ export class DeceasedDetailsPage implements OnInit, OnDestroy {
   mobile = false;
   modalHeader: any = {
     header: 'Form Type',
+
   };
   private deceasedSub: Subscription;
 
