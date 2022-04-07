@@ -7,6 +7,7 @@ import { Deceased } from './deceased.model';
 import { DeceasedService } from './deceased.service';
 import {isWithinInterval, isBefore} from 'date-fns';
 import { DateRangePage } from 'src/app/shared/date-range/date-range.page';
+import { StorageService } from 'src/app/services/storage-service.service';
 
 @Component({
   selector: 'app-deceased-details',
@@ -36,7 +37,8 @@ export class DeceasedDetailsPage implements OnInit, OnDestroy {
     private router: Router,
     private loadingCtrl: LoadingController,
     private actionSheetCtrl: ActionSheetController,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    private storageService: StorageService
   ) {
 
   }

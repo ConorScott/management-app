@@ -13,6 +13,9 @@ import { ReceiptLayoutPage } from '../../reports/receipts/receipt-layout/receipt
 import { PaymentsPageModule } from '../../reports/payments/payments.module';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 
+import { InformationChildComponent } from './information-child/information-child.component';
+import { PaymentModalComponent } from 'src/app/shared/payment-modal/payment-modal.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -28,8 +31,9 @@ const routes: Routes = [
         IonicModule,
         RouterModule.forChild(routes),
         SharedModule,
-        ScrollingModule
+        ScrollingModule,
     ],
-    declarations: [DebtorInformationPage]
+    declarations: [DebtorInformationPage, InformationChildComponent],
+    entryComponents: [PaymentModalComponent]
 })
 export class DebtorInformationPageModule {}

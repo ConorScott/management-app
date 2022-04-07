@@ -28,6 +28,9 @@ import { File } from '@ionic-native/file/ngx';
 import { FileOpener } from '@ionic-native/file-opener/ngx';
 import {  } from 'src/app/shared/shared.module';
 
+import { IonicStorageModule } from '@ionic/storage-angular';
+import { Network } from '@ionic-native/network/ngx';
+
 
 @NgModule({
     declarations: [AppComponent],
@@ -46,19 +49,21 @@ import {  } from 'src/app/shared/shared.module';
             provide: DateAdapter,
             useFactory: adapterFactory,
         }),
+        IonicStorageModule.forRoot(),
         ServiceWorkerModule.register('ngsw-worker.js', {
             enabled: environment.production,
             // Register the ServiceWorker as soon as the app is stable
             // or after 30 seconds (whichever comes first).
             registrationStrategy: 'registerWhenStable:30000'
-        }),
+        })
     ],
     providers: [
         File,
         FileOpener,
         { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
         AppVersion,
-        InAppBrowser
+        InAppBrowser,
+        Network
     ],
     bootstrap: [AppComponent]
 })
